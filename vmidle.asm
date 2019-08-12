@@ -26,7 +26,7 @@
 ;*****************************************************************************
 begin_resident:
 
-        dd      0xffffffff
+        dd      0x0000ffff
         dw      0x8000
 int28_prev:
         dw      strategy
@@ -59,7 +59,7 @@ interrupt:
         lds     bx,[cs:request]
         cmp     byte [bx+0x02],0
         jz      short init
-        or      word [bx+0x03],0x8003
+        or      word [bx+0x03],0x8101
 exit:
         popa
         retf
